@@ -86,7 +86,7 @@ fun HomeScreen(
     ) {
         if (uiState == HomeScreenState.Loading) {
             Column(
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxSize()
                     .background(WhiteColor),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -108,7 +108,6 @@ fun HomeScreen(
                         UserTile(
                             user = user,
                             onClick = {
-//                            viewModel.initiateAChat()
                                 navController.navigate(
                                     ChatScreen(
                                         receiverUserID = user.uid,

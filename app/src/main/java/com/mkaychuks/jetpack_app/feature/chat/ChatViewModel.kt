@@ -24,14 +24,6 @@ class ChatViewModel @Inject constructor() : ViewModel() {
     val chatMessages = _chatMessages.asStateFlow()
     val currentUserUid = auth.currentUser?.uid
 
-
-//    init {
-//        viewModelScope.launch {
-//            getMessages()
-//        }
-//    }
-
-
     // function to create a message
     fun sendMessage(receiverID: String, message: String) {
         val currentUserUid = auth.currentUser?.uid ?: return
@@ -48,7 +40,7 @@ class ChatViewModel @Inject constructor() : ViewModel() {
         )
 
         // construct a unique chatroom Id
-        val ids = mutableListOf<String>(receiverID, currentUserUid)
+        val ids = mutableListOf(receiverID, currentUserUid)
         ids.sort()
         val chatRoomID = ids.joinToString("_")
 
@@ -65,7 +57,7 @@ class ChatViewModel @Inject constructor() : ViewModel() {
         val currentUserUid = auth.currentUser?.uid ?: return
 
         // construct a unique chatroom Id
-        val ids = mutableListOf<String>(receiverUserID, currentUserUid)
+        val ids = mutableListOf(receiverUserID, currentUserUid)
         ids.sort()
         val chatRoomID = ids.joinToString("_")
 
